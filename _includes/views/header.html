@@ -23,11 +23,7 @@
   {%- assign default_paths = site.pages | where: "dir", "/" | map: "path" -%}
   {%- assign page_paths = site.header_pages | default: default_paths -%}
 
-  <!-- 👇 هنا نضيف الشعار -->
-  <div style="text-align:center; margin-bottom:10px;">
-    <img src="{{ site.baseurl }}/assets/images/logo-hero.svg" alt="مفكرتي الرقمية" style="max-width:220px; height:auto; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-radius: 8px;">
-  </div>
-
+  
   <span class="site-brand">
     {%- include views/site-brand.html -%}
   </span>
