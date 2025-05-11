@@ -1,8 +1,11 @@
 <header class="site-header">
-  <div class="wrapper">
-    <div style="text-align: center; margin: 10px 0;">
-      <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="شعار مفكرتي الرقمية" style="max-width: 150px;">
-    </div>
-    <a class="site-title" rel="author" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+  <div class="wrapper" style="text-align:center;">
+    <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="شعار" style="max-width: 100px;">
+    <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+    <nav>
+      {% for page in site.header_pages %}
+        <a href="{{ page | relative_url }}">{{ site.pages | where: "path", page | first | default: page }}</a> |
+      {% endfor %}
+    </nav>
   </div>
 </header>

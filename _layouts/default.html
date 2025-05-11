@@ -1,38 +1,23 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+<html lang="ar">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title }} | {{ site.title }}</title>
 
-    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
-
-    <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
-    <!-- ✅ هذا هو الكود الذي طلبته -->
     <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
-
-    <link rel="shortcut icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
+    {% include head.html %}
   </head>
 
   <body>
-    <header class="site-header" role="banner">
-      <div class="wrapper">
-        <a class="site-title" rel="author" href="{{ '/' | relative_url }}">{{ site.title }}</a>
-      </div>
-    </header>
-
+    {% include header.html %}
     <main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        {{ content }}
-      </div>
+      <div class="wrapper">{{ content }}</div>
     </main>
-
     <footer class="site-footer">
-      <div class="wrapper">
-        <p>© {{ site.title }} - جميع الحقوق محفوظة</p>
-      </div>
+      <div class="wrapper">© {{ site.title }} - جميع الحقوق متاحة لكل من يريد نفع الآخرين</div>
     </footer>
-
   </body>
 </html>
