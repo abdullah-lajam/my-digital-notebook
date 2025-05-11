@@ -22,6 +22,8 @@ like_btn: true
 locale: "ar_SA"
 split_editor: true
 
+banner: null
+
 header_pages:
   - index.html
   - ai.html
