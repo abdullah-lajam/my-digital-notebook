@@ -3,8 +3,10 @@
     <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="شعار" style="max-width: 100px;">
     <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
     <nav>
-      {% for page in site.header_pages %}
-        <a href="{{ page | relative_url }}">{{ site.pages | where: "path", page | first | default: page }}</a> |
+      {% for page in site.pages %}
+        {% if site.header_pages contains page.path %}
+          <a href="{{ page.url | relative_url }}">{{ page.title }}</a> |
+        {% endif %}
       {% endfor %}
     </nav>
   </div>
