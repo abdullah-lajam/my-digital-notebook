@@ -1,0 +1,290 @@
+---
+// ضروري لـ Jekyll لمعالجة الملف
+---
+
+// استيراد أنماط Minima (إذا كنت تستخدمه) أو ابدأ من الصفر
+// @import "minima";
+
+// متغيرات الألوان والخطوط (لتسهيل التخصيص)
+$brand-color: #007bff; // أزرق احترافي
+$secondary-color: #6c757d; // رمادي محايد
+$text-color: #333;
+$background-color: #f8f9fa; // خلفية فاتحة جدًا
+$header-footer-bg: #ffffff;
+$border-color: #e0e0e0;
+
+$font-family-primary: 'Cairo', sans-serif; // خط عربي رئيسي
+$font-family-secondary: 'Roboto', sans-serif; // خط لاتيني (احتياطي أو لأجزاء معينة)
+$base-font-size: 16px;
+$line-height: 1.7;
+
+// إعادة تعيين أساسية
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, li {
+  margin: 0;
+  padding: 0;
+  font-family: $font-family-primary;
+  color: $text-color;
+  line-height: $line-height;
+}
+
+body {
+  background-color: $background-color;
+  direction: rtl; // ضمان اتجاه النص من اليمين لليسار
+}
+
+.wrapper {
+  max-width: 960px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+// رأس الصفحة
+.site-header {
+  background-color: $header-footer-bg;
+  border-bottom: 1px solid $border-color;
+  padding: 15px 0;
+  margin-bottom: 30px; // مسافة قبل المحتوى الرئيسي
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .site-title {
+    font-size: 2em;
+    color: $brand-color;
+    font-weight: 700;
+    text-decoration: none;
+  }
+}
+
+// التنقل
+.site-nav {
+  .page-link {
+    color: $secondary-color;
+    text-decoration: none;
+    margin-left: 20px; // في RTL، هذا يعطي مسافة على يمين العنصر
+    font-size: 1.1em;
+
+    &:hover {
+      color: $brand-color;
+      text-decoration: underline;
+    }
+  }
+  // إخفاء مدخل checkbox وقائمة burger للأجهزة الكبيرة
+  .nav-trigger { display: none; }
+  .menu-icon { display: none; }
+}
+
+
+// المحتوى الرئيسي
+.page-content {
+  padding: 30px 0;
+  min-height: calc(100vh - 200px); // لجعل الفوتر يلتصق بالأسفل إذا كان المحتوى قليلاً
+}
+
+// المقالات والصفحات
+.post-header, .page-header {
+  margin-bottom: 30px;
+}
+
+.post-title, .page-title {
+  font-size: 2.5em;
+  color: $brand-color;
+  margin-bottom: 0.5em;
+  font-weight: 700;
+}
+
+.post-meta {
+  font-size: 0.9em;
+  color: $secondary-color;
+  margin-bottom: 1em;
+}
+
+.post-content, .page-content {
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.7em;
+    color: darken($brand-color, 10%);
+  }
+  h1 { font-size: 2.2em; }
+  h2 { font-size: 1.8em; }
+  h3 { font-size: 1.5em; }
+
+  p {
+    margin-bottom: 1.2em;
+  }
+
+  a {
+    color: $brand-color;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  ul, ol {
+    margin-bottom: 1.2em;
+    padding-right: 20px; // مسافة بادئة للقوائم في RTL
+  }
+
+  blockquote {
+    border-right: 4px solid $brand-color; // في RTL، الخط على اليمين
+    padding-right: 15px;
+    margin-right: 0;
+    margin-left: 0; // إزالة الهامش الأيسر إن وجد
+    font-style: italic;
+    color: $secondary-color;
+  }
+
+  pre, code {
+    font-family: $font-family-secondary, monospace; // خط مختلف للكود
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    padding: 2px 5px;
+    border-radius: 4px;
+    direction: ltr; // الكود عادةً من اليسار لليمين
+    text-align: left;
+  }
+  pre {
+    padding: 10px;
+    overflow-x: auto;
+  }
+}
+
+// زر "اقرأ المزيد"
+.read-more {
+  display: inline-block;
+  background-color: $brand-color;
+  color: #fff !important; // ضمان أن لون النص أبيض
+  padding: 8px 15px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 10px;
+
+  &:hover {
+    background-color: darken($brand-color, 10%);
+    text-decoration: none;
+  }
+}
+
+// قائمة التدوينات في الصفحة الرئيسية
+.post-list {
+  list-style: none;
+  padding-right: 0; // إزالة المسافة البادئة الافتراضية للقائمة
+  li {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid $border-color;
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+  h3 {
+    margin-bottom: 0.2em;
+    a {
+        color: $text-color;
+        font-size: 1.5em;
+        &:hover {
+            color: $brand-color;
+        }
+    }
+  }
+}
+
+// تذييل الصفحة
+.site-footer {
+  background-color: $header-footer-bg;
+  border-top: 1px solid $border-color;
+  padding: 30px 0;
+  font-size: 0.9em;
+  color: $secondary-color;
+  text-align: center;
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-col-wrapper {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .social-links {
+    margin-bottom: 15px;
+    a { margin: 0 10px; }
+  }
+}
+
+
+// تصميم متجاوب (أساسي جدًا)
+@media screen and (max-width: 768px) {
+  .site-header .wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .site-title {
+    margin-bottom: 10px;
+  }
+
+  .site-nav {
+    position: relative;
+    width: 100%;
+  }
+
+  .site-nav .menu-icon {
+    display: block;
+    position: absolute;
+    top: 5px; // ضبط حسب حجم العنوان
+    left: 15px; // في RTL سيكون على اليسار
+    width: 30px;
+    height: 22px;
+    cursor: pointer;
+    fill: $text-color;
+  }
+
+  .site-nav .nav-trigger {
+    display: none; // إخفاء الـ checkbox نفسه
+  }
+
+  .site-nav .trigger {
+    clear: both;
+    display: none; // القائمة مخفية افتراضيًا
+    width: 100%;
+    background-color: $header-footer-bg;
+    border: 1px solid $border-color;
+    margin-top: 10px;
+  }
+
+  .site-nav .nav-trigger:checked ~ .trigger {
+    display: block; // إظهار القائمة عند تحديد الـ checkbox
+  }
+
+  .site-nav .page-link {
+    display: block;
+    padding: 10px 15px;
+    text-align: right; // محاذاة النص لليمين في RTL
+    margin-left: 0;
+    border-bottom: 1px solid $border-color;
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .footer-col-wrapper {
+    flex-direction: column;
+    align-items: center;
+    .footer-col {
+      margin-bottom: 10px;
+      text-align: center;
+    }
+  }
+}
+

@@ -1,33 +1,67 @@
-title: "مفكّرتي الرقمية"
-description: "مدونة تقنية متخصصة في الذكاء الاصطناعي – دروس، أدوات، وأفكار."
-email: "you@example.com"
+# Site settings
+title: مفكرتي الرقمية
+email: abdullah.lajam@gmail.com # بريدك الإلكتروني
+description: >- # هذا يظهر في ميتا وصف الموقع وفي الفيد
+  مدونة شخصية ،  أشارك فيها أفكاري وخبراتي في مجالات التكنولوجيا، ريادة الأعمال، والابتكار.
+baseurl: "/my-digital-notebook" # مهم جداً: اسم المستودع الخاص بك إذا لم يكن username.github.io
+url: "https://abdullah-lajam.github.io" # رابط موقعك الأساسي
+github_username: abdullah-lajam
+author: عبدالله سالم
 
-url: "https://abdullah-lajam.github.io"
-baseurl: "/my-digital-notebook"   # غيّر إذا تغيّر اسم الريبو
-
-permalink: /:categories/:title/
-lang: ar
-timezone: Asia/Riyadh
-
-# الصفحات الظاهرة في الترويسة
-header_pages:
-  - index.md
-  - about.md
-  - categories.html
-
-collections:
-  tutorials:
-    output: true
-    permalink: /tutorials/:title/
-
-sass:
-  style: compressed
-
+# Build settings
+markdown: kramdown
+theme: minima # يمكنك البدء بموضوع بسيط ثم تخصيصه أو اختيار واحد آخر لاحقاً
 plugins:
   - jekyll-feed
-  - jekyll-seo-tag
-  - jekyll-sitemap
-  - jekyll-paginate
 
-paginate: 6
-paginate_path: "/page/:num/"
+# Collections for sections (optional but recommended for cleaner structure)
+collections:
+  artificial_intelligence:
+    output: true
+    permalink: /ai/:path/
+  elearning:
+    output: true
+    permalink: /elearning/:path/
+  business_administration:
+    output: true
+    permalink: /business/:path/
+  humanities:
+    output: true
+    permalink: /humanities/:path/
+  miscellaneous:
+    output: true
+    permalink: /misc/:path/
+
+# Default front matter for posts
+defaults:
+  - scope:
+      path: "" # an empty string here means all files in the project
+      type: "posts"
+    values:
+      layout: "post"
+      author: "عبدالله سالم"
+  - scope:
+      path: ""
+      type: "pages" # For static pages like About
+    values:
+      layout: "page"
+
+# Pagination (if you want to split your blog posts list into multiple pages)
+# paginate: 5
+# paginate_path: "/blog/page:num/"
+
+# Exclude from processing.
+# The following items will not be processed, by default.
+# Any item listed under the `exclude:` key here will be automatically excluded from
+# the build process.
+# exclude:
+#   - .sass-cache/
+#   - .jekyll-cache/
+#   - gemfiles/
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules/
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/

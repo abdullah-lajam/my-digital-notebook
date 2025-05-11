@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang }}" dir="rtl" data-mode="light">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+<html lang="ar" dir="rtl">
   {% include head.html %}
-</head>
-<body>
-  {% include header.html %}
-  <main class="page-content">{{ content }}</main>
-  {% include footer.html %}
-</body>
+  <body>
+    {% include header.html %}
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        {{ content }}
+      </div>
+    </main>
+    {% include footer.html %}
+  </body>
 </html>

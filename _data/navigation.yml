@@ -1,0 +1,14 @@
+- title: عني
+  url: /about/
+- title: الذكاء الاصطناعي
+  url: /sections/artificial-intelligence/
+- title: التعليم الإلكتروني
+  url: /sections/elearning/
+- title: إدارة الأعمال
+  url: /sections/business-administration/
+- title: إنسانيات
+  url: /sections/humanities/
+- title: تدوينات متفرقة
+  url: /sections/miscellaneous/
+- title: الأرشيف
+  url: /archive/ # صفحة لعرض كل المقالات
