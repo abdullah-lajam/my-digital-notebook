@@ -24,9 +24,9 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: "" # Learn to Build
-email: m.rashadnow@gmail.com
-author: محمد رشاد
+title: مفكرتي الرقمية
+email: abdullah.lajam@gmail.com
+author: عبدالله سالم
 
 # # theme: owner/name --> Don't forget to remove/comment the gem-based theme option
 # remote_theme: "MohamedAliRashad/The-Simple-Arabic-Theme"
