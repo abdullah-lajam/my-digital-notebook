@@ -24,10 +24,15 @@ split_editor: true
 
 header_pages:
   - index.html
+  - ai.html
+  - education.html
+  - business.html
+  - humanities.html
+  - misc.html
   - archives.html
   - categories.html
-  - make_post.html
   - about.html
+
 
 markdown: kramdown
 kmarkdown:
