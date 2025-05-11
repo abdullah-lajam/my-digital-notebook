@@ -1,0 +1,19 @@
+title: "مفكرتي الرقمية"
+description: "مدونة شخصية تقنية"
+theme: minima
+plugins:
+  - jekyll-feed
+
+baseurl: "/my-digital-notebook"
+url: "https://abdullah-lajam.github.io"
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  
+header_pages:
+  - ai.md
+  - education.md
+  - business.md
+  - humanities.md
+  - misc.md
