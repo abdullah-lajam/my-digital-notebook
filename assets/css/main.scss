@@ -1,6 +1,11 @@
 ---
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+
+body, h1, h2, h3, h4, h5, h6, p, a {
+    font-family: 'Tajawal', sans-serif !important;
+}
 
 // Default theme colors
 $theme-colors: (
