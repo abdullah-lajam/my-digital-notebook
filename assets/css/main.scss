@@ -3,18 +3,47 @@
 ---
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
 
+/* تطبيق الخط العربي Tajawal */
 body, h1, h2, h3, h4, h5, h6, p, a {
     font-family: 'Tajawal', sans-serif !important;
 }
 
-// Default theme colors
+/* تحسين ألوان الخلفية والنص */
+body {
+    background-color: #f5f7fa; /* خلفية ناعمة */
+    color: #2c3e50;            /* نص أساسي */
+}
+
+/* تحسين شكل الروابط */
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* تحسين شكل الأزرار */
+button, .btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+}
+
+button:hover, .btn:hover {
+    background-color: #2c3e50;
+}
+
+/* إعدادات الألوان الأساسية للثيم */
 $theme-colors: (
   "coolblack": #090a0b,
   "spacegrey": #353535,
   "snowwhite": #ffffff,
 );
 
-// Default brand colors
 $brand-colors: (
   "orangered": #ff5100,
   "greatgold": #f2cb05,
@@ -40,4 +69,5 @@ $brand-color: map-get($brand-colors, "orangered");
 
 $content-width: {{ site.content_width | default: '920px' }};
 
+/* استدعاء بقية إعدادات الثيم */
 @import "yat";
