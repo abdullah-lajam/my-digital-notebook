@@ -1,0 +1,17 @@
+---
+layout: default
+title: التصنيفات
+permalink: /categories/
+---
+
+<section class="container">
+  <h1>التصنيفات</h1>
+  <ul class="cat-list">
+    {% for cat in site.categories %}
+      <li>
+        <a href="{{ '/categories/' | append: cat[0] | slugify | append:'/' | relative_url }}">{{ cat[0] }}</a>
+        ({{ cat[1].size }})
+      </li>
+    {% endfor %}
+  </ul>
+</section>

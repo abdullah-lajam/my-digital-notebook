@@ -1,19 +1,21 @@
 <header class="site-header">
-  <div class="wrapper header-inner">
-    <a href="{{ '/' | relative_url }}" class="brand">
-      <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="شعار" class="brand-logo" />
-      <span class="brand-title">{{ site.title }}</span>
+  <div class="container flex-between">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="logo"><span>{{ site.title }}</span>
     </a>
 
-    <nav class="site-nav">
+    <nav class="nav">
       {% for path in site.header_pages %}
-        {% assign page = site.pages | where: "path", path | first %}
-        {% if page %}
-          <a href="{{ page.url | relative_url }}">{{ page.title }}</a>
-        {% endif %}
+        {% assign p = site.pages | where:"path", path | first %}
+        {% if p %}<a href="{{ p.url | relative_url }}">{{ p.title }}</a>{% endif %}
       {% endfor %}
     </nav>
 
-    <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
+    <button id="theme-toggle">🌓</button>
   </div>
 </header>
+<script>
+  const html=document.documentElement,btn=document.getElementById('theme-toggle');
+  const stored=localStorage.getItem('mode');if(stored){html.dataset.mode=stored}
+  btn.onclick=_=>{html.dataset.mode=html.dataset.mode=='dark'?'light':'dark';localStorage.setItem('mode',html.dataset.mode);}
+</script>

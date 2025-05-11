@@ -1,34 +1,14 @@
 <!DOCTYPE html>
-<html lang="ar" data-theme="light">
+<html lang="{{ site.lang }}" dir="rtl" data-mode="light">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
-  <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
-  <script>
-    // Dark mode toggle
-    function toggleTheme() {
-      const html = document.documentElement;
-      html.dataset.theme = html.dataset.theme === 'dark' ? 'light' : 'dark';
-      localStorage.setItem('theme', html.dataset.theme);
-    }
-    document.addEventListener('DOMContentLoaded', () => {
-      const saved = localStorage.getItem('theme');
-      if (saved) document.documentElement.dataset.theme = saved;
-    });
-  </script>
+  {% include head.html %}
 </head>
 <body>
   {% include header.html %}
-  <main class="page-content">
-    <div class="wrapper">
-      {{ content }}
-    </div>
-  </main>
-  <footer class="site-footer">
-    <div class="wrapper">
-      <p>© {{ site.title }} • جميع الحقوق محفوظة</p>
-    </div>
-  </footer>
+  <main class="page-content">{{ content }}</main>
+  {% include footer.html %}
 </body>
 </html>

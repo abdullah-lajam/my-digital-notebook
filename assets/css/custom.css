@@ -1,157 +1,67 @@
-/* ===============================
-   1. Fonts & Base
-   =============================== */
-@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+/* 1. استيراد Google Font */
+@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap");
 
+/* 2. متغيرات */
+$primary: #0077cc;
+$primary-dark: darken($primary, 10%);
+$bg-light: #f7f9fc;
+$bg-dark: #1e1e2e;
+$text-light: #2c3e50;
+$text-dark: #e6e6f1;
+
+/* 3. جذور CSS */
 :root {
-  --color-bg-light: #f5f7fa;
-  --color-bg-dark: #1e1e2e;
-  --color-card-light: #ffffff;
-  --color-card-dark: #2a2a3c;
-  --color-text-light: #2c3e50;
-  --color-text-dark: #e0e0e8;
-  --color-primary: #0077cc;
-  --color-primary-dark: #005999;
-  --max-width: 900px;
-  --spacing: 1rem;
+  --primary: #{$primary};
+  --primary-dark: #{$primary-dark};
 }
 
-html[data-theme="light"] {
-  --color-bg: var(--color-bg-light);
-  --color-card: var(--color-card-light);
-  --color-text: var(--color-text-light);
-}
-html[data-theme="dark"] {
-  --color-bg: var(--color-bg-dark);
-  --color-card: var(--color-card-dark);
-  --color-text: var(--color-text-dark);
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0; padding: 0;
+/* 4. reset */
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{
+  font-family:'Tajawal',sans-serif;
+  margin:0;direction:rtl;
+  background:var(--bg, #{$bg-light});
+  color:var(--text, #{$text-light});
+  line-height:1.8
 }
 
-body {
-  font-family: 'Tajawal', sans-serif;
-  background: var(--color-bg);
-  color: var(--color-text);
-  line-height: 1.8;
-  direction: rtl;
+/* 5. أوضاع */
+html[data-mode="dark"]{
+  --bg:#{$bg-dark};
+  --card:#2a2a3c;
+  --text:#{$text-dark};
+}
+html[data-mode="light"]{
+  --bg:#{$bg-light};
+  --card:#ffffff;
+  --text:#{$text-light};
 }
 
-.wrapper {
-  width: 90%;
-  max-width: var(--max-width);
-  margin: auto;
-}
+/* 6. تصميمات */
+.container{width:90%;max-width:1000px;margin:auto}
+.flex-between{display:flex;justify-content:space-between;align-items:center}
 
-/* ===============================
-   2. Header
-   =============================== */
-.site-header {
-  background: var(--color-card);
-  padding: var(--spacing) 0;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-.header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.brand {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}
-.brand-logo {
-  width: 50px;
-  margin-left: 0.5rem;
-}
-.brand-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--color-text);
-}
+/* Header */
+.site-header{background:var(--card);box-shadow:0 2px 8px rgba(0,0,0,.08);position:sticky;top:0;z-index:100}
+.brand{display:flex;align-items:center;color:var(--text);text-decoration:none;font-weight:700;font-size:20px}
+.brand img{width:48px;margin-left:8px}
+.nav a{background:$primary;color:#fff;padding:6px 14px;border-radius:5px;margin-left:6px;text-decoration:none;font-size:15px;transition:.3s}
+.nav a:hover{background:$primary-dark}
 
-.site-nav {
-  display: flex;
-  gap: 0.5rem;
-}
-.site-nav a {
-  padding: 0.5rem 1rem;
-  background: var(--color-primary);
-  color: #fff;
-  border-radius: 4px;
-  transition: background 0.3s;
-  text-decoration: none;
-}
-.site-nav a:hover {
-  background: var(--color-primary-dark);
-}
+/* Hero */
+.hero{background:linear-gradient(145deg,$primary 10%,$primary-dark 90%);color:#fff;padding:4rem 0;text-align:center}
+.hero h1{font-size:2.2rem;margin-bottom:.5rem}
+.hero h1 span{color:gold}
+.hero .cta{display:inline-block;margin-top:1rem;background:#fff;color:$primary;padding:.6rem 1.4rem;border-radius:30px;text-decoration:none;font-weight:700}
 
-.theme-toggle {
-  background: none;
-  border: none;
-  font-size: 1.2rem;
-  cursor: pointer;
-}
+/* Cards */
+.grid{display:grid;grid-template-columns:1fr;gap:1rem}
+@media(min-width:700px){.grid{grid-template-columns:1fr 1fr}}
+.card{background:var(--card);padding:1rem;border-radius:8px;box-shadow:0 1px 5px rgba(0,0,0,.06);transition:.2s}
+.card:hover{transform:translateY(-3px)}
+.card h3{margin:.3rem 0 0;font-size:1.2rem}
+.meta{font-size:.9rem;color:gray;margin-bottom:.6rem}
+.read-more{font-size:.9rem;color:$primary;font-weight:700}
 
-/* ===============================
-   3. Main Content & Cards
-   =============================== */
-.page-content {
-  padding: var(--spacing) 0;
-}
-.posts-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--spacing);
-}
-@media(min-width: 600px) {
-  .posts-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-article.post-card {
-  background: var(--color-card);
-  padding: var(--spacing);
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  transition: transform 0.2s;
-}
-article.post-card:hover {
-  transform: translateY(-4px);
-}
-.post-card h3 {
-  margin-bottom: 0.5rem;
-  font-size: 1.3rem;
-}
-.post-card .meta {
-  font-size: 0.9rem;
-  color: gray;
-  margin-bottom: 1rem;
-}
-.post-card p {
-  font-size: 1rem;
-}
-
-/* ===============================
-   4. Footer
-   =============================== */
-.site-footer {
-  background: var(--color-card);
-  width: 100%;
-  text-align: center;
-  padding: var(--spacing);
-  border-top: 1px solid #ddd;
-  font-size: 0.9rem;
-}
-.site-footer .wrapper {
-  max-width: var(--max-width);
-  margin: auto;
-}
+/* Footer */
+.site-footer{background:var(--card);padding:1rem 0;text-align:center;margin-top:2rem;font-size:.85rem;border-top:1px solid #ddd}

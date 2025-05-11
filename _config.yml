@@ -1,23 +1,33 @@
-title: "مفكرتي الرقمية"
-email: "abdullah.lajam@gmail.com"
-description: "مساحتي الشخصية لمشاركة أفكاري وتجربتي في التقنية وريادة الأعمال والذكاء الاصطناعي."
-baseurl: "/my-digital-notebook"
-url: "https://abdullah-lajam.github.io"
-theme_color: "#ffffff"
-brand_color: "#0077cc"
-content_width: "900px"
+title: "مفكّرتي الرقمية"
+description: "مدونة تقنية متخصصة في الذكاء الاصطناعي – دروس، أدوات، وأفكار."
+email: "you@example.com"
 
+url: "https://abdullah-lajam.github.io"
+baseurl: "/my-digital-notebook"   # غيّر إذا تغيّر اسم الريبو
+
+permalink: /:categories/:title/
+lang: ar
+timezone: Asia/Riyadh
+
+# الصفحات الظاهرة في الترويسة
 header_pages:
   - index.md
-  - categories.md
   - about.md
+  - categories.html
 
-markdown: kramdown
-kmarkdown:
-  input: GFM
+collections:
+  tutorials:
+    output: true
+    permalink: /tutorials/:title/
+
+sass:
+  style: compressed
 
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-paginate
+
+paginate: 6
+paginate_path: "/page/:num/"
