@@ -4,13 +4,16 @@
       <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="شعار" class="brand-logo" />
       <span class="brand-title">{{ site.title }}</span>
     </a>
+
     <nav class="site-nav">
-      {% for page in site.pages %}
-        {% if site.header_pages contains page.path %}
+      {% for path in site.header_pages %}
+        {% assign page = site.pages | where: "path", path | first %}
+        {% if page %}
           <a href="{{ page.url | relative_url }}">{{ page.title }}</a>
         {% endif %}
       {% endfor %}
     </nav>
+
     <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
   </div>
 </header>
