@@ -1,17 +1,23 @@
 title: "مفكرتي الرقمية"
-description: "مدونة شخصية تقنية"
-theme: minima
-plugins:
-  - jekyll-feed
+email: "abdullah.lajam@gmail.com"
+description: "مساحتي الشخصية لمشاركة أفكاري وتجربتي في التقنية وريادة الأعمال والذكاء الاصطناعي."
 baseurl: "/my-digital-notebook"
 url: "https://abdullah-lajam.github.io"
-markdown: kramdown
-kramdown:
-  input: GFM
+theme_color: "#ffffff"
+brand_color: "#0077cc"
+content_width: "900px"
 
 header_pages:
-  - ai.md
-  - education.md
-  - business.md
-  - humanities.md
-  - misc.md
+  - index.md
+  - categories.md
+  - about.md
+
+markdown: kramdown
+kmarkdown:
+  input: GFM
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
