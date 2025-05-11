@@ -1,11 +1,11 @@
 <header class="site-header">
   <div class="wrapper" style="text-align:center;">
-    <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="شعار" style="max-width: 100px;">
+    <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="شعار" style="max-width: 80px;">
     <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
     <nav>
       {% for page in site.pages %}
         {% if site.header_pages contains page.path %}
-          <a href="{{ page.url | relative_url }}">{{ page.title }}</a> |
+          <a href="{{ page.url | relative_url }}">{{ page.title }}</a>
         {% endif %}
       {% endfor %}
     </nav>

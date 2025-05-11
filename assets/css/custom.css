@@ -2,13 +2,79 @@
 
 body, h1, h2, h3, h4, h5, h6, p, a {
     font-family: 'Tajawal', sans-serif !important;
+    direction: rtl;
+    text-align: right;
+}
+
+body {
+    background-color: #f9f9f9;
+    color: #2c3e50;
+    line-height: 1.6;
 }
 
 a {
-    color: #3498db;
+    color: #0077cc;
     text-decoration: none;
 }
 
 a:hover {
-    color: #2c3e50;
+    color: #005999;
+    text-decoration: underline;
+}
+
+/* Header improvements */
+.site-header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 10px 0;
+}
+
+.site-header img {
+    max-width: 80px;
+}
+
+.site-header h1 {
+    font-size: 24px;
+    margin: 10px 0 5px 0;
+}
+
+.site-header nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.site-header nav a {
+    background-color: #0077cc;
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 15px;
+}
+
+.site-header nav a:hover {
+    background-color: #005999;
+}
+
+/* Page content */
+.page-content {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    border-radius: 8px;
+}
+
+/* Footer improvements */
+.site-footer {
+    text-align: center;
+    font-size: 13px;
+    color: #777;
+    padding: 20px 0;
+    border-top: 1px solid #eaeaea;
+    margin-top: 40px;
 }
