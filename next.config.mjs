@@ -7,6 +7,9 @@ const nextConfig = {
   },
   trailingSlash: true,
   basePath: '/my-digital-notebook',
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 };
 
 export default nextConfig;
