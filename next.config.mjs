@@ -1,17 +1,12 @@
-/** @type {import('next').NextConfig} */
+// next.config.mjs
+
 const nextConfig = {
   output: 'export',
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
   images: {
     unoptimized: true,
   },
   trailingSlash: true,
-  basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
+  basePath: '/my-digital-notebook',
 };
 
 export default nextConfig;
