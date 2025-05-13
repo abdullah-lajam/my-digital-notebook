@@ -1,5 +1,3 @@
-# my-digital-notebook/.github/workflows/deploy.yml
-
 name: Deploy to GitHub Pages
 
 on:
