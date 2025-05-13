@@ -1,78 +1,23 @@
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { BookOpen } from "lucide-react"
-import Link from "next/link"
-import Image from "next/image"
-import { getAllPosts } from "@/lib/posts"
+// app/posts/[slug]/page.tsx
+import { Metadata } from 'next';
+import { getAllPostSlugs } from '@/lib/content';
 
-export const metadata = {
-  title: "جميع التدوينات - مدونتي الرقمية",
-  description: "استعرض جميع التدوينات في المدونة",
+interface PostPageProps {
+  params: { slug: string };
 }
 
-export default function PostsPage() {
-  const posts = getAllPosts()
+export async function generateStaticParams() {
+  return getAllPostSlugs().map((slug) => ({ slug }));
+}
 
+export const metadata: Metadata = { title: 'Post' };
+
+export default function PostPage({ params }: PostPageProps) {
+  const { slug } = params;
   return (
-    <div className="max-w-4xl mx-auto">
-      <h1 className="text-4xl font-bold mb-8 text-center">جميع التدوينات</h1>
-
-      {posts.length > 0 ? (
-        <div className="grid grid-cols-1 gap-6">
-          {posts.map((post) => (
-            <Card key={post.slug} className="flex flex-col md:flex-row overflow-hidden">
-              <div className="relative h-48 md:h-auto md:w-1/3">
-                <Image
-                  src={post.coverImage || "/placeholder.svg?height=200&width=300"}
-                  alt={post.title}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="flex-1 flex flex-col">
-                <CardHeader>
-                  <CardTitle>{post.title}</CardTitle>
-                  <CardDescription>
-                    <div className="flex items-center gap-2">
-                      <Link href={`/categories/${post.category}`} className="hover:text-primary transition-colors">
-                        {post.categoryName}
-                      </Link>
-                      <span>•</span>
-                      <time dateTime={post.date}>{post.date}</time>
-                    </div>
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="line-clamp-3">{post.excerpt}</p>
-                  <div className="flex flex-wrap gap-2 mt-4">
-                    {post.tags.map((tag) => (
-                      <Badge key={tag} variant="secondary">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-                <CardFooter className="mt-auto">
-                  <Button variant="ghost" asChild className="w-full md:w-auto">
-                    <Link href={`/posts/${post.slug}`} className="flex items-center gap-2">
-                      <span>قراءة المزيد</span>
-                      <BookOpen className="h-4 w-4" />
-                    </Link>
-                  </Button>
-                </CardFooter>
-              </div>
-            </Card>
-          ))}
-        </div>
-      ) : (
-        <div className="text-center py-12">
-          <p className="text-xl mb-4">لا توجد تدوينات حالياً</p>
-          <Button asChild>
-            <Link href="/">العودة للصفحة الرئيسية</Link>
-          </Button>
-        </div>
-      )}
-    </div>
-  )
+    <main className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold mb-4">تدوينة: {slug}</h1>
+      {/* هنا ضَع منطق جلب وعرض محتوى Markdown لاحقاً */}
+    </main>
+  );
 }
